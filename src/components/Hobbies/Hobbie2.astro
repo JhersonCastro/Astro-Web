@@ -55,21 +55,12 @@
           </span>. 
           La música me relaja y me inspira, es un espacio donde conecto con emociones y creatividad.
         </p>
-        
-        <!-- Iconos de artistas -->
-        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-6">
-          <span class="text-3xl hover:scale-110 transition-transform">🎸</span>
-          <span class="text-3xl hover:scale-110 transition-transform">🎤</span>
-          <span class="text-3xl hover:scale-110 transition-transform">🎹</span>
-          <span class="text-3xl hover:scale-110 transition-transform">🥁</span>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style is:global>
-  /* Estilo para las notas musicales animadas */
   .musical-note {
     position: absolute;
     color: rgba(255, 255, 255, 0.6);
@@ -86,9 +77,9 @@
   .musical-note:nth-child(5n) { font-size: 3rem; }
   
   /* Variación de colores */
-  .musical-note:nth-child(4n) { color: rgba(255, 215, 0, 0.5); } /* dorado */
-  .musical-note:nth-child(5n+2) { color: rgba(255, 105, 180, 0.5); } /* rosa */
-  .musical-note:nth-child(7n+3) { color: rgba(135, 206, 250, 0.5); } /* celeste */
+  .musical-note:nth-child(4n) { color: rgba(255, 215, 0, 0.5); } 
+  .musical-note:nth-child(5n+2) { color: rgba(255, 105, 180, 0.5); } 
+  .musical-note:nth-child(7n+3) { color: rgba(135, 206, 250, 0.5); } 
 </style>
 
 <script>
@@ -127,13 +118,11 @@
     
     const musicalNotes = document.querySelectorAll('.musical-note');
     
-    // Configurar ScrollTrigger para la animación
     ScrollTrigger.create({
       trigger: "#musica-section",
-      start: "top 80%", // Cuando la sección está al 80% del viewport
+      start: "top 80%", 
       end: "bottom 20%",
       onEnter: () => {
-        // Animar cada nota cuando la sección es visible
         musicalNotes.forEach((note, index) => {
           gsap.fromTo(note, 
             {
@@ -151,7 +140,6 @@
               repeat: -1, // Repetir infinitamente
               repeatDelay: Math.random() * 2,
               onRepeat: () => {
-                // Resetear posición al repetir
                 gsap.set(note, { y: 0, opacity: 0 });
               }
             }
@@ -159,14 +147,12 @@
         });
       },
       onLeave: () => {
-        // Pausar/kill las animaciones cuando la sección no es visible
         musicalNotes.forEach(note => {
           gsap.killTweensOf(note);
           gsap.set(note, { opacity: 0 });
         });
       },
       onEnterBack: () => {
-        // Reanudar al volver a la sección
         musicalNotes.forEach((note, index) => {
           gsap.to(note, {
             y: -800,
