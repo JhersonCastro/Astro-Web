@@ -1,10 +1,6 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  output: 'static',
-  vite: {
-    optimizeDeps: {
-      include: ['gsap']
-    }
-  }
-});
+  site: 'https://JhersonCastro.github.io',
+  base: 'Astro-Web',
+})
