@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const context = canvas.getContext("2d");
 
   const frameCount = 36;
-  const currentFrame = index => `Astro-Web/Helldivers/frame_${String(index).padStart(4, '0')}.jpg`;
+  const currentFrame = index => `/Helldivers/frame_${String(index).padStart(4, '0')}.jpg`;
 
   const images = [];
   let imagesLoaded = 0;
