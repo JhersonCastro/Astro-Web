@@ -98,8 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const frameIndex = Math.floor(self.progress * (frameCount - 1));
       render(frameIndex);
     },
-    onEnter: () => console.log("🎬 Entrando a BileTitan"),
-    onLeave: () => console.log("👋 Saliendo de BileTitan")
   });
 
   return () => {
