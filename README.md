@@ -71,20 +71,6 @@ Finalmente iniciar el servidor de desarrollo:
 Una vez iniciado, el proyecto se puede visualizar en el navegador en la dirección:
 
 ``http://localhost:4321``
-
-## Uso de imágenes en local
-
-Cuando trabajes con este proyecto en tu entorno local, asegúrate de **eliminar el prefijo `/Astro-Web`** en las rutas de las imágenes.  
-Esto se debe a que GitHub Pages necesita el nombre del repositorio en la URL, pero en local esa carpeta no existe.
-
-### Ejemplo
-
-Incorrecto (solo funciona en GitHub Pages):
-ImgSrc="/Astro-Web/BucketNetwork.png"
-
-Correcto (funciona en local):
-ImgSrc="/BucketNetwork.png"
-
 De esta forma podrás visualizar las imágenes correctamente al ejecutar el proyecto en tu máquina.
 
 
