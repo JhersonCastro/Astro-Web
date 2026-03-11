@@ -1,5 +1,6 @@
 ---
-// About.astro
+import { Image } from "astro:assets";
+import me from "../assets/me.jpg";
 ---
 
 <section id="AboutMeSection" class="min-h-screen flex items-center justify-center p-4 md:p-8">
@@ -23,11 +24,11 @@
           <p class="py-3 text-center text-xl md:text-2xl font-medium bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
             Este soy yo :b
           </p>
-          <img id="img-me"
+          <Image id="img-me"
             class="h-80 w-full object-cover object-center md:h-96"
-            src="/Astro-Web/me.jpg"
+            src={me}
             alt="Jherson Castro"
-            loading="eager"
+            loading="lazy"
           />
         </div>
       </figure>
