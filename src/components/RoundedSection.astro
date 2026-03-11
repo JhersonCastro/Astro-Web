@@ -11,7 +11,7 @@ const {
 ---
 <section id="RotationSection" class="relative min-h-screen overflow-x-hidden flex flex-col lg:flex-row">
   <div class="hidden lg:flex w-1/2 justify-start relative overflow-hidden">
-    <div class="w-[650px] aspect-square absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[55%]" id="dona-desktop">
+    <div class="w-162.5 aspect-square absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[55%]" id="dona-desktop">
       <img
         src={imagenSrc}
         alt="Dona con personajes"
@@ -24,7 +24,7 @@ const {
     <p id="change-text" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"></p>
     
     <div id="info-table" class="mt-8 hidden opacity-0 lg:block" style="display: none;">
-      <table class="min-w-full rounded-xl border-2 border-gray-200 bg-white/90 shadow-2xl backdrop-blur-sm">
+      <table class="min-w-full rounded-xl border-2 border-gray-200 bg-white/90  backdrop-blur-sm">
         <caption class="text-2xl text-black mb-2">Aqui esta la tabla:(</caption>
         <thead class="bg-linear-to-r from-sky-400 via-yellow-200 to-red-600">
           <tr>
@@ -59,6 +59,11 @@ const {
   #info-table {
     transition: all 0.5s ease;
   }
+.pin-spacer,
+#RotationSection {
+  box-shadow: none !important;
+  filter: none !important;
+}
 </style>
 
 <script>
@@ -67,7 +72,7 @@ const {
 
 	gsap.registerPlugin(ScrollTrigger);
 
-    document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const donaDesktop = document.querySelector('#dona-desktop img');
     const donaMobile = document.querySelector('#dona-mobile img');
     const textoRotate = ["Nivel: Universidad", "Institución: Universidad del cauca", "Años: 2023-2026"];
@@ -92,6 +97,7 @@ const {
       transformOrigin: "50% 61.94%"
     });
 
+    if(!changeText || !infoTable || !section) return;
     changeText.innerText = '';
     changeText.style.opacity = '0';
     changeText.style.transform = 'translateY(20px)';
@@ -100,6 +106,7 @@ const {
     infoTable.style.opacity = '0';
 
     section.style.background = `linear-gradient(135deg, rgb(255,255,255), rgb(240,240,255))`;
+    section.style.boxShadow = 'none';
 
     let textoActual = -1;
     let tablaVisible = false;
@@ -109,14 +116,13 @@ const {
         id:"roundedsection",
         trigger: "#RotationSection",
         start: "top top",          
-        end: "+=3000",
-        pin: true,                    
+        end: "+=300%",
+        pin: true,            
         scrub: 1.5,
         anticipatePin: 1,
         onLeaveBack: () => {
           if (tablaVisible) {
             tablaVisible = false;
-            
             gsap.to(infoTable, {
               opacity: 0,
               scale: 0.8,
@@ -231,10 +237,10 @@ const {
         y: -30,
         duration: 0.3,
         onComplete: () => {
-          changeText.style.display = 'none';
-          changeText.innerText = ''; 
+          changeText!.style.display = 'none';
+          changeText!.innerText = ''; 
           
-          infoTable.style.display = 'block';
+          infoTable!.style.display = 'block';
           
           gsap.fromTo(infoTable, 
             {
@@ -252,15 +258,6 @@ const {
               filter: "blur(0px)",
               duration: 0.8,
               ease: "back.out(1.2)",
-              onStart: () => {
-                const filas = infoTable.querySelectorAll('tbody tr');
-                if (filas.length > 0) {
-                  gsap.fromTo(filas, 
-                    { opacity: 0, x: -30 },
-                    { opacity: 1, x: 0, duration: 0.3, stagger: 0.1 }
-                  );
-                }
-              }
             }
           );
         }
