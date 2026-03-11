@@ -1,5 +1,8 @@
 ---
-import ProyectTag from "./ProyectTag.astro"
+import ProyectTag from "./ProyectTag.astro";
+import ASCSharp from "../../assets/Proyects/ASCSharp.png";
+import BucketNetwork from "../../assets/Proyects/BucketNetwork.png";
+import PasswordGenerator from "../../assets/Proyects/PasswordGenerator.png";
 ---
 <div class="flex flex-col">
     <div class="text-center mb-12">
@@ -14,9 +17,9 @@ import ProyectTag from "./ProyectTag.astro"
     <div class="w-full shrink-0 px-4">
       <ProyectTag 
         Title="Bucket network" 
-        Description="BucketNetwork is a social platform prototype designed for university purposes, aimed at facilitating the creation and interaction with user-generated content."
+        Description="BucketNetwork is a social platform designed for university purposes, aimed at facilitating the creation and interaction with user-generated content."
         Status="I think it's done" 
-        ImgSrc="/Astro-Web/BucketNetwork.png"
+        ImgSrc={BucketNetwork}
       >
         <a target="_blank" href="https://github.com/JhersonCastro/PostHiveDemo" class="text-blue-400 hover:text-blue-600">
           Clic to see the project
@@ -29,7 +32,7 @@ import ProyectTag from "./ProyectTag.astro"
         Title="Password Generator" 
         Description="A lightweight tool designed to generate secure passwords with customizable options such as length, symbols, numbers, and uppercase letters."
         Status="Completed" 
-        ImgSrc="/Astro-Web/PasswordGenerator.png"
+        ImgSrc={PasswordGenerator}
       >
         <a target="_blank" href="https://github.com/JhersonCastro/passwordGenerator" class="text-blue-400 hover:text-blue-600">
           Clic to see the project
@@ -42,7 +45,7 @@ import ProyectTag from "./ProyectTag.astro"
         Title="Ascsharp" 
         Description="Ascsharp is a simple and fast notepad-style text editor built with WPF and C#."
         Status="Completed" 
-        ImgSrc="/Astro-Web/ASCSharp.png"
+        ImgSrc={ASCSharp}
       >
         <a target="_blank" href="https://github.com/JhersonCastro/ASCSharp" class="text-blue-400 hover:text-blue-600">
           Clic to see the project
