@@ -2,7 +2,7 @@
 // ContactForm.astro
 ---
 
-<section id="contacto-section" class="relative min-h-screen py-16 md:py-24 bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+<section id="contacto-section" class="relative min-h-screen py-16 md:py-24 text-white overflow-hidden">
   
   <div class="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
     <div class="absolute top-20 left-[15%] w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
@@ -182,7 +182,7 @@
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Email no válido');
     
     if (!phone) errors.push('El teléfono es obligatorio');
-    else if (!/^\d{10,}$/.test(phone.replace(/\s/g, ''))) errors.push('Teléfono no válido (mínimo 10 dígitos)');
+    else if (!/^\d{10}$/.test(phone.replace(/\s/g, ''))) errors.push('Teléfono no válido (deben ser 10 dígitos)');
     
     if (!motivo) errors.push('Selecciona un motivo');
     if (!mensaje) errors.push('El mensaje no puede estar vacío');
