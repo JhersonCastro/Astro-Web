@@ -3,16 +3,18 @@ export interface Props {
   imagenSrc?: string;
   textos?: string[];
 }
+import { Image } from "astro:assets";
 
+import FrameMiku  from "../assets/FrameMiku.png";
 const { 
-  imagenSrc = "/Astro-Web/FrameMiku.png",
+  imagenSrc = FrameMiku,
   textos = ["Nivel: Universidad", "Institución: Universidad del cauca", "Años: 2023-2026"]
 } = Astro.props;
 ---
 <section id="RotationSection" class="relative min-h-screen overflow-x-hidden flex flex-col lg:flex-row">
   <div class="hidden lg:flex w-1/2 justify-start relative overflow-hidden">
     <div class="w-162.5 aspect-square absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[55%]" id="dona-desktop">
-      <img
+      <Image
         src={imagenSrc}
         alt="Dona con personajes"
         class="w-full h-auto object-contain"
@@ -46,7 +48,7 @@ const {
 
   <div class="lg:hidden w-full flex justify-center mt-auto pb-6 overflow-hidden">
     <div class="w-64 aspect-square transform translate-y-[-0%]" id="dona-mobile">
-      <img
+      <Image
         src={imagenSrc}
         alt="Dona con personajes"
         class="w-full h-auto object-contain"
