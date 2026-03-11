@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import programming from "../../assets/programming.png";
 ---
 
 <section class="py-16 md:py-24  text-white">
@@ -24,8 +26,8 @@
         <div class="relative group w-full">
           
           <div class="relative bg-purple-800/30 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+            <Image 
+              src={programming} 
               alt="Programación - Código en pantalla" 
               class="w-full h-auto rounded-xl shadow-lg object-cover aspect-video"
               loading="lazy"
