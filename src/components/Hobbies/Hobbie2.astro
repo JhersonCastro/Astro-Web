@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import musica from "../../assets/musica.png"
+import cancion from "../../assets/AllMyLoving.mp3"
 ---
 
 <section id="musica-section" class="relative py-16 md:py-24 text-white overflow-hidden">
@@ -16,7 +17,7 @@ import musica from "../../assets/musica.png"
         Musica
       </h2>
     </div>
-
+    
     <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
       
       <div class="flex-1 flex justify-center order-2 lg:order-1">
@@ -31,6 +32,17 @@ import musica from "../../assets/musica.png"
               loading="lazy"
             />
             
+            <div id="PlayMusicController" class="absolute bottom-0 right-0 text-5xl opacity-60 transition-transform duration-300 hover:scale-110 cursor-pointer">
+              <svg id="PlayIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class=" size-12">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+              </svg>
+              <svg id="PauseIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="hidden size-12">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
+              </svg>
+              <audio src={cancion} id="Cancion"></audio>
+
+            </div>
             <div class="absolute -top-6 -right-2 text-4xl animate-bounce opacity-50">♪</div>
             <div class="absolute -bottom-4 -left-4 text-3xl animate-pulse opacity-40">♫</div>
           </div>
@@ -79,6 +91,29 @@ import musica from "../../assets/musica.png"
   gsap.registerPlugin(ScrollTrigger);
 
   document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('Cancion') as HTMLAudioElement;
+    audio.volume = 0.15;
+    const playmusicController = document.getElementById('PlayMusicController');
+    playmusicController.addEventListener('click', setPlaying);
+    const playIcon = document.getElementById('PlayIcon');
+    const pauseIcon = document.getElementById('PauseIcon');
+    const isPlaying = { value: false };
+  
+    function setPlaying() {
+      if (isPlaying.value) {
+        audio.pause();
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+      } else {
+        audio.play();
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+      }
+      isPlaying.value = !isPlaying.value;
+    }
+    
+
+
     const container = document.getElementById('notas-container');
     const section = document.getElementById('musica-section');
     
