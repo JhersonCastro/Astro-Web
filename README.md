@@ -26,7 +26,7 @@ Durante la rotación se producen varios efectos sincronizados:
 - El color de fondo cambia progresivamente realizando una transición entre los colores blanco, azul, amarillo y rojo.
 - Al finalizar la rotación aparece una tabla con información académica.
 
-El objetivo de esta sección es demostrar el uso de animaciones controladas por scroll utilizando GSAP.
+El objetivo de esta sección es demostrar que me aburro mucho.
 
 ### Pasatiempos
 
@@ -49,6 +49,8 @@ Esta parte del portafolio destaca el videojuego Helldivers 2. Incluye una animac
 - Astro
 - Tailwind CSS
 - GSAP
+
+Obviamente, HTML, CSS Y JavaScript
 
 Estas tecnologías permiten construir una interfaz moderna, optimizada y con animaciones fluidas.
 
