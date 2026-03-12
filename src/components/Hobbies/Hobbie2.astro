@@ -118,7 +118,7 @@ import cancion from "../../assets/AllMyLoving.mp3"
       isPlaying.value = !isPlaying.value;
     }
     audio.addEventListener('ended', () => {
-      playIcon.classList.remove('hidden');
+      playIcon.classList.add('hidden');
       pauseIcon.classList.add('hidden');
       resetIcon.classList.remove('hidden');
       isPlaying.value = false;
